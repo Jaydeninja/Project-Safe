@@ -1,0 +1,15 @@
+                                                                                                              |-PROJECT SAFE-|   
+                                                                                                                                                                                                             Jayden Ellul | Savio College Malta
+                                                                                                                                                                                                                                                                                                         
+Info: 
+This is the program for the safe some features are: face detection, 
+Locking, Key holder, and an alarm system. It is coded in pyhton using a 
+RPi 4 (Hence .py) and uses the .xml file to aid in face detection. 
+
+VERY IMPORTANT:
+DO NOT DELETE/MOVE/EDIT ANY FILES!
+The only files you can delete are the face.jpg and any file cointaining
+the word test.
+
+How to use:
+Upload code to any IDE (i use Thonny python IDE) and press start.
