@@ -1,7 +1,4 @@
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.base import MIMEBase
-from email import encoders
+
 
 # --                                                                                                                                                                    |-PROJECT SAFE -|                                               Jayden Ellul | Savio College Malta | Last edited: 00:50 2/1/24   - #
 ## Import libraries
@@ -10,6 +7,10 @@ import cv2                                                 # OpenCV
 from picamera import PiCamera       # RPi Camera
 import matplotlib.pyplot as plt          # Face Recognition
 from time import sleep                         # Delay
+import smtplib                       # Email        
+from email.mime.multipart import MIMEMultipart                      
+from email.mime.base import MIMEBase
+from email import encoders      
 
 
 
