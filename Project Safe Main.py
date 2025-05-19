@@ -1,3 +1,8 @@
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email import encoders
+
 # --                                                                                                                                                                    |-PROJECT SAFE -|                                               Jayden Ellul | Savio College Malta | Last edited: 00:50 2/1/24   - #
 ## Import libraries
 import RPi.GPIO as GPIO                    # GPIO Pins
@@ -38,6 +43,37 @@ camera.capture('face.jpg')
 # Close preview
 camera.stop_preview()
 sleep(3)
+
+# Send email with the captured image
+
+def send_email(subject, body, to, attachment_path):
+    from_email = "mrrasberrypi4@gmail.com"
+    from_password = "RasberryPi4!!!"
+
+    msg = MIMEMultipart()
+    msg['From'] = from_email
+    msg['To'] = to
+    msg['Subject'] = subject
+
+    part = MIMEBase('application', 'octet-stream')
+    part.set_payload(open(attachment_path, 'rb').read())
+    encoders.encode_base64(part)
+    part.add_header('Content-Disposition', 'attachment; filename="face.jpg"')
+    msg.attach(part)
+
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(from_email, from_password)
+    server.sendmail(from_email, to, msg.as_string())
+    server.quit()
+
+# Call the function to send the email
+send_email(
+    subject="FaceID Lock Successful",
+    body="The face has been captured successfully.",
+    to="jaydenellul11@gmail.com",
+    attachment_path="face.jpg"
+)
 
 
 ## Detects face from taken picture
